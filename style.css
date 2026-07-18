@@ -1,0 +1,990 @@
+/* Variables para mantener consistencia de colores */
+:root {
+    --color-primario: #af6d32;
+    --color-primario-hover: #915624;
+    --color-oscuro: #1f1a18;
+    --color-texto: #5A4A42;
+    --color-fondo-tarjeta: #ffffff;
+    --sombra-suave: 0 10px 30px rgba(0, 0, 0, 0.05);
+    --sombra-tarjeta: 0 15px 35px rgba(175, 109, 50, 0.08);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #fcfbfa;
+    color: var(--color-texto);
+    font-family: 'Poppins', sans-serif;
+    overflow-x: hidden;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 8%;
+    height: 90px;
+    position: fixed; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+    background-color: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.03);
+    transition: all 0.3s ease; 
+}
+
+/*el menu tasty*/
+.menu-hamburguesa {
+    display: none;
+    font-size: 35px;
+    color: var(--color-oscuro);
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    color: var(--color-texto);
+}
+
+.menu-hamburguesa:hover {
+    transform: scale(1.1);
+}
+
+.marca {
+    color: var(--color-oscuro);
+    font-family: "Playfair Display", serif;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 26px;
+    letter-spacing: 0.5px;
+}
+
+.marca .icono {
+    height: 35px;
+    width: auto;
+    transition: transform 0.3s ease;
+}
+
+.marca:hover .icono {
+    transform: rotate(-10deg) scale(1.1);
+}
+
+.amoblamientos { font-weight: 400; }
+.noe { font-weight: 700; color: var(--color-primario); }
+
+.menu-derecha {
+    display: flex;
+    align-items: center;
+    gap: 35px;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: var(--color-texto);
+    font-weight: 500;
+    font-size: 15px;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+/* Línea animada debajo de los links */
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: var(--color-primario);
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover { color: var(--color-primario); }
+.nav-link:hover::after { width: 100%; }
+
+
+/* --- BOTONES PREMIUM --- */
+.boton {
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    color: white;
+    background-color: var(--color-primario);
+    border-radius: 50px; /* Bordes redondeados más orgánicos */
+    padding: 12px 28px;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 15px rgba(175, 109, 50, 0.2);
+}
+
+.boton:hover {
+    background-color: var(--color-primario-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(175, 109, 50, 0.3);
+}
+
+.boton:active { transform: translateY(0); }
+
+
+/* --- HERO SECCIÓN (Inicio) --- */
+.hero {
+    position: relative;
+    height: 100vh;
+    min-height: 650px;
+    width: 100%;
+}
+
+.imagen1 {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+}
+
+.capa-degradado {
+    background: linear-gradient(to right, rgba(255, 255, 255, 0.98) 35%, rgba(255, 255, 255, 0.7) 55%, rgba(255, 255, 255, 0) 100%);
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 1;
+}
+
+.div-inicio {
+    left: 8%;
+    top: 55%;
+    transform: translateY(-50%);
+    position: absolute;
+    z-index: 2;
+    max-width: 500px;
+}
+
+.titulo {
+    font-size: 48px;
+    line-height: 1.2;
+    font-family: "Playfair Display", serif;
+    color: var(--color-oscuro);
+    font-weight: 700;
+}
+
+.parrafo-inicio {
+    font-size: 17px;
+    line-height: 1.6;
+    color: var(--color-texto);
+    margin-top: 20px;
+    font-weight: 300;
+}
+
+.contenedor-botones {
+    margin-top: 35px;
+    display: flex;
+    gap: 15px;
+}
+
+.destacado.secundario {
+    background-color: transparent;
+    color: var(--color-primario);
+    border: 2px solid var(--color-primario);
+    box-shadow: none;
+}
+
+.destacado.secundario:hover {
+    background-color: var(--color-primario);
+    color: white;
+}
+
+.lista-inicio {
+    margin-top: 50px;
+    list-style: none;
+}
+
+.lista-inicio li {
+    position: relative; 
+    padding-left: 32px;
+    margin-top: 12px;
+    font-weight: 500;
+    color: var(--color-oscuro);
+    font-size: 15px;
+}
+
+.lista-inicio li::before {
+    content: "✓"; 
+    color: white;
+    background-color: #28a745;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    position: absolute;
+    left: 0; 
+    top: 1px;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* --- SECCIÓN MEDIO (Servicios con Tarjetas Flotantes) --- */
+.medio {
+    padding: 100px 8%;
+}
+
+.encabezado-seccion {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+h2.titulo2 {
+    font-size: 38px;
+    font-family: "Playfair Display", serif;
+    font-weight: 700;
+    color: var(--color-oscuro);
+}
+
+.parrafo_2 {
+    margin-top: 15px;
+    font-size: 16px;
+    color: var(--color-texto);
+}
+
+.medio_seccion {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* Diseño responsivo real sin romper nada */
+    gap: 30px;
+}
+
+.bloque {
+    background-color: var(--color-fondo-tarjeta);
+    padding: 40px 30px;
+    border-radius: 16px;
+    text-align: center;
+    box-shadow: var(--sombra-suave);
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    border: 1px solid rgba(0,0,0,0.01);
+}
+
+.bloque:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--sombra-tarjeta);
+    border-color: rgba(175, 109, 50, 0.1);
+}
+
+.icono-contenedor {
+    background-color: #fdf7f2;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 25px auto;
+    transition: background-color 0.3s ease;
+}
+
+.bloque:hover .icono-contenedor {
+    background-color: var(--color-primario);
+}
+
+.iconos {
+    font-size: 35px !important;
+    color: var(--color-primario);
+    transition: color 0.3s ease;
+}
+
+.bloque:hover .iconos {
+    color: white;
+}
+
+.bloque h3 {
+    font-family: "Playfair Display", serif;
+    font-size: 20px;
+    color: var(--color-oscuro);
+    margin-bottom: 12px;
+    font-weight: 600;
+}
+
+.bloque p {
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--color-texto);
+}
+
+/* --- SECCIÓN TRABAJOS (GALERÍA) --- */
+.trabajos {
+    padding: 60px 8% 100px 8%;
+    background-color: #fbf9f6; /* Un fondo apenas diferente para romper la monotonía */
+    /* max-width: 900px; */
+}
+
+.galeria-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr; /*se adapta a los celulares*/
+    gap: 25px;
+    margin-top: 40px;
+}
+
+.trabajo-item {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden; /* Esto hace que la foto no se salga de los bordes redondeados al agrandarse */
+    height: 350px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.03);
+    cursor: pointer;
+}
+
+.trabajo-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease; /* Transición para el zoom de la foto */
+}
+
+/* Capa oscura que aparece arriba de la foto al pasar el mouse */
+.trabajo-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, rgba(31, 26, 24, 0.9) 10%, rgba(31, 26, 24, 0.2) 100%);
+    display: flex;
+    align-items: flex-end; /* Empuja el texto hacia abajo de la tarjeta */
+    padding: 30px;
+    opacity: 0; /* Oculta la capa por defecto */
+    transition: opacity 0.4s ease;
+}
+
+.trabajo-info {
+    transform: translateY(20px); /* El texto sube un poquito cuando aparece */
+    transition: transform 0.4s ease;
+}
+
+.trabajo-info h4 {
+    font-family: "Playfair Display", serif;
+    font-size: 22px;
+    color: white;
+    margin-bottom: 5px;
+}
+
+.trabajo-info p {
+    font-family: "Poppins", sans-serif;
+    font-size: 13px;
+    color: #dfdcd9;
+}
+
+/* --- EFECTOS HOVER (MAGIA VISUAL) --- */
+.trabajo-item:hover img {
+    transform: scale(1.08); /* Zoom elegante a la imagen */
+}
+
+.trabajo-item:hover .trabajo-overlay {
+    opacity: 1; /* Muestra la capa oscura */
+}
+
+.trabajo-item:hover .trabajo-info {
+    transform: translateY(0); /* El texto se acomoda en su lugar original */
+}
+
+/* --- SECCIÓN NOSOTROS --- */
+.nosotros {
+    padding: 100px 8%;
+    background-color: #ffffff;
+}
+
+.nosotros-contenedor {
+    display: flex;
+    align-items: center;
+    gap: 80px; /* Espacio generoso entre la foto y el texto */
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Columna Izquierda: Imagen con efecto de marco decorativo */
+.nosotros-imagen {
+    position: relative;
+    flex: 1;
+    min-width: 300px;
+}
+
+.nosotros-imagen img {
+    width: 100%;
+    height: 480px;
+    object-fit: cover;
+    border-radius: 16px;
+    position: relative;
+    z-index: 2;
+    box-shadow: var(--sombra-suave);
+}
+
+/* Cuadrado decorativo de fondo que le da un toque artístico */
+.decoracion-borde {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: 3px solid var(--color-primario);
+    top: 20px;
+    left: -20px;
+    border-radius: 16px;
+    z-index: 1;
+    opacity: 0.3;
+}
+
+/* Columna Derecha: Texto */
+.nosotros-contenido {
+    flex: 1;
+}
+
+.subtitulo-seccion {
+    font-family: "Poppins", sans-serif;
+    color: var(--color-primario);
+    font-weight: 600;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.titulo-nosotros {
+    font-family: "Playfair Display", serif;
+    font-size: 40px;
+    color: var(--color-oscuro);
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 25px;
+}
+
+.parrafo-nosotros {
+    font-family: "Poppins", sans-serif;
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--color-texto);
+    margin-bottom: 20px;
+}
+
+/* Bloque de estadísticas rápidas */
+.nosotros-stats {
+    display: flex;
+    gap: 40px;
+    margin-top: 35px;
+    border-top: 1px solid #eee;
+    padding-top: 25px;
+}
+
+.stat-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.stat-numero {
+    font-family: "Playfair Display", serif;
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--color-primario);
+}
+
+.stat-texto {
+    font-family: "Poppins", sans-serif;
+    font-size: 13px;
+    color: var(--color-texto);
+    margin-top: 2px;
+}
+
+/* --- RESPONSIVE PARA PANTALLAS CHICAS --- */
+/* @media (max-width: 968px) {
+    .nosotros-contenedor {
+        flex-direction: column; 
+        gap: 50px;
+    }
+    
+    .nosotros-imagen {
+        width: 100%;
+        max-width: 500px;
+    }
+    
+    .nosotros-imagen img {
+        height: 350px;
+    }
+    
+    .decoracion-borde {
+        top: 15px;
+        left: -15px;
+    }
+} */
+
+/* --- VENTANA MODAL CONTENEDOR (FONDO OSCURO) --- */
+.modal-contenedor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(31, 26, 24, 0.8); /* Fondo oscuro translúcido */
+    backdrop-filter: blur(8px);
+    z-index: 1000; /* Por encima de toda la página */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    
+    /* Estado inicial: oculto */
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+}
+
+/* Clase que inyectará JavaScript para mostrarlo */
+.modal-contenedor.activo {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* LA CAJA DEL MODAL */
+.modal-contenido {
+    background-color: #ffffff;
+    max-width: 900px;
+    width: 100%;
+    border-radius: 20px;
+    overflow: hidden;
+    display: flex;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+    transform: scale(0.9);
+    transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.modal-contenedor.activo .modal-contenido {
+    transform: scale(1); /* Efecto de pop-up suave al abrir */
+}
+
+/* Distribución interna del modal (50% foto, 50% texto) */
+.modal-izq {
+    flex: 1;
+    height: 450px;
+}
+
+.modal-izq img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.modal-der {
+    flex: 1;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #fdfdfd;
+}
+
+#modalTitulo {
+    font-family: "Playfair Display", serif;
+    font-size: 32px;
+    color: var(--color-oscuro);
+    margin-bottom: 15px;
+}
+
+#modalDescripcion {
+    font-family: "Poppins", sans-serif;
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--color-texto);
+    margin-bottom: 30px;
+}
+
+#modalBotonAlbum {
+    align-self: flex-start; /*para q el boton no se estire*/
+}
+
+.modal-cerrar { /* boton cerrar */
+    position: absolute;
+    top: 30px;
+    right: 40px;
+    font-size: 50px;
+    color: #ffffff;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.modal-cerrar:hover {
+    color: var(--color-primario);
+}
+
+/* RESPONSIVE PARA CELULARES */
+/* @media (max-width: 768px) {
+    .modal-contenido {
+        flex-direction: column;
+        max-height: 90vh;
+        overflow-y: auto;
+    }
+    .modal-izq {
+        height: 250px;
+    }
+    .modal-der {
+        padding: 25px;
+    }
+    #modalTitulo {
+        font-size: 24px;
+    }
+} */
+
+footer {
+    background-color: var(--color-oscuro);
+    color: #f5f5f5; /* Un blanco roto para que contraste bien con el fondo oscuro */
+    padding: 60px 8% 30px 8%; /* Más espacio arriba para que respire */
+    font-family: "Poppins", sans-serif;
+}
+
+/* Corregimos la grilla principal */
+.identidad-completa {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Separado con espacio, no con coma */
+    gap: 50px;
+    align-items: start;
+}
+
+.identidad {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Flexbox vertical para separar el logo, el slogan y las redes uniformemente */
+}
+
+.identidad-div {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.identidad-div .icono {
+    height: 40px;
+    width: auto;
+    transition: transform 0.3s ease;
+    filter: invert(47%) sepia(82%) saturate(385%) hue-rotate(341deg) brightness(89%) contrast(87%);
+}
+
+.identidad-div:hover .icono {
+    transform: rotate(-10deg) scale(1.1);
+}
+
+.marca-identidad {
+    font-family: "Playfair Display", serif;
+    line-height: 1.1; /* el interlineado */
+}
+
+.amoblamientos-footer {
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #ccc;
+}
+
+.noe-footer {
+    color: #af6d32;
+    font-size: 32px;
+    font-weight: 700;
+    letter-spacing: 4px;
+}
+
+.identidad-slogan p {
+    max-width: 380px;
+    font-size: 14px;
+    color: #b3b3b3;
+    line-height: 1.6;
+}
+
+
+.identidad-contacto {
+    display: flex;
+    gap: 20px; 
+    font-size: 28px;
+    margin-top: 10px;
+}
+
+.identidad-contacto i {
+    color: #b3b3b3;
+    transition: color 0.3s ease, transform 0.3s ease;
+    cursor: pointer;
+}
+
+.identidad-contacto i:hover {
+    color: #af6d32;
+    transform: translateY(-3px);
+}
+
+.ubicacion-footer {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    justify-self: end; 
+    align-items: center;
+}
+
+.ubicacion-footer p {
+    font-size: 16px;
+    font-weight: 500;
+    color: #f5f5f5;
+    width: fit-content;
+}
+
+footer hr {
+    border: none; 
+    height: 1px;  
+    background-color: #af6d32;
+    margin: 40px 0 20px 0;     
+    opacity: 0.2;  
+}
+
+.derechos-footer {
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+    color: #888;
+}
+
+/* --- RESPONSIVE --- */
+/* @media (max-width: 768px) {
+    .identidad-completa {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    
+    .ubicacion-footer {
+        justify-self: start;
+    }
+    
+    .derechos-footer {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+} */
+
+.contenedor-mapa {
+    width: 200px;  
+    height: 200px; 
+    border-radius: 50%; /* redondito */
+    overflow: hidden;     /*para q el mapa no se haga el piola*/
+    border: 3px solid #af6d32; 
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+/*     margin-right: 40px; */
+}
+
+.contenedor-mapa iframe {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* ==========================================================================
+   📦 TODO EL RESPONSIVE ORDENADO AL FINAL (Para pantallas chicas)
+   ========================================================================== */
+
+/* --- DISPOSITIVOS MEDIANOS / TABLETS (max-width: 968px) --- */
+@media (max-width: 968px) {
+    /* Sección Nosotros */
+    .nosotros-contenedor {
+        flex-direction: column; /* Se pone uno abajo del otro */
+        gap: 50px;
+    }
+    
+    .nosotros-imagen {
+        width: 100%;
+        max-width: 500px;
+    }
+    
+    .nosotros-imagen img {
+        height: 350px;
+    }
+    
+    .decoracion-borde {
+        top: 15px;
+        left: -15px;
+    }
+}
+
+/* --- CELULARES Y PANTALLAS CHICAS (max-width: 768px) --- */
+@media (max-width: 768px) {
+    
+    /* 1. Header y Navegación */
+    header {
+        padding: 0 5%; /* Menos margen a los costados para ganar espacio */
+        height: 80px;
+    }
+
+    .marca {
+        font-size: 22px; /* Achicamos un toque el logo */
+    }
+
+/* Mostramos el icono de tres líneas */
+    .menu-hamburguesa {
+        display: block;
+        z-index: 101; /* Por encima de todo */
+    }
+
+    /* Transformamos el menú horizontal en una pantalla completa que baja */
+    .menu-derecha {
+        position: fixed;
+        top: 0;
+        right: -100%; /* Totalmente oculto a la derecha de la pantalla */
+        width: 100%;
+        height: 100vh;
+        background-color: rgba(255, 255, 255, 0.98); /* Fondo semi-transparente */
+        backdrop-filter: blur(10px);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 30px;
+        transition: right 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        z-index: 100;
+    }
+
+
+    .menu-derecha.activo {
+        right: 0;
+    }
+
+    /* Hacemos los links más grandes para que sean fáciles de tocar */
+    .nav-link {
+        font-size: 20px;
+        font-weight: 600;
+    }
+
+    .header-boton {
+        width: auto !important; /* Que el botón no ocupe todo el ancho dentro del menú desplegable */
+    }
+
+    /* 2. Hero Sección (Inicio) */
+    .titulo {
+        font-size: 34px; /* Achicamos la letra grande para que no se corte en celus */
+    }
+
+    .parrafo-inicio {
+        font-size: 15px;
+    }
+
+    .div-inicio {
+        width: 84%;
+        left: 8%;
+        top: 50%;
+    }
+
+    .contenedor-botones {
+        flex-direction: column; /* Botones uno abajo del otro */
+        gap: 12px;
+    }
+
+    .boton {
+        text-align: center;
+        width: 100%; /* Botones a lo ancho del celu, más fáciles de tocar */
+    }
+
+    /* 3. Sección Servicios (Medio) */
+    .medio {
+        padding: 60px 5%; /* Menos padding para aprovechar la pantalla */
+    }
+
+    h2.titulo2 {
+        font-size: 30px;
+    }
+
+    .medio_seccion {
+        grid-template-columns: 1fr; /* Una sola columna de tarjetas de servicio */
+        gap: 20px;
+    }
+
+    /* 4. Sección Trabajos (Galería) */
+    .trabajos {
+        padding: 60px 5%;
+    }
+
+    .galeria-grid {
+        /* Pasamos de 4 columnas a 1 sola en celular para que las fotos luzcan grandes */
+        grid-template-columns: 1fr; 
+        gap: 20px;
+    }
+
+    .trabajo-item {
+        height: 280px; /* Un alto más cómodo para scrollear en el celu */
+    }
+
+    /* En celulares, hacemos que la info del mueble sea visible sin necesidad de pasar el mouse */
+    .trabajo-overlay {
+        opacity: 1;
+        background: linear-gradient(to top, rgba(31, 26, 24, 0.95) 20%, rgba(31, 26, 24, 0.4) 100%);
+        padding: 20px;
+    }
+
+    .trabajo-info {
+        transform: translateY(0);
+    }
+
+    /* 5. Ventana Modal */
+    .modal-contenido {
+        flex-direction: column;
+        max-height: 90vh;
+        overflow-y: auto;
+    }
+
+    .modal-izq {
+        height: 250px;
+    }
+
+    .modal-der {
+        padding: 25px;
+    }
+
+    #modalTitulo {
+        font-size: 24px;
+    }
+
+    .modal-cerrar {
+        top: 15px;
+        right: 20px;
+        font-size: 40px; /* Más cómodo para cerrar con el dedo */
+    }
+
+    /* 6. Footer (Pie de página) */
+    footer {
+        padding: 40px 5% 20px 5%;
+    }
+
+    .identidad-completa {
+        grid-template-columns: 1fr; /* Pasa a una sola columna */
+        gap: 40px;
+        text-align: center; /* Centramos todo para que quede estético */
+    }
+
+    .identidad-div {
+        justify-content: center; /* Centra el logo */
+    }
+
+    .identidad-slogan p {
+        margin: 0 auto; /* Centra el párrafo del slogan */
+    }
+
+    .identidad-contacto {
+        justify-content: center; /* Centra los iconos de redes */
+    }
+
+    .ubicacion-footer {
+        justify-self: center; /* Centra el mapa en el medio de la pantalla */
+        align-items: center;
+    }
+
+    .derechos-footer {
+        flex-direction: column;
+        gap: 12px;
+        text-align: center;
+    }
+}
