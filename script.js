@@ -1,4 +1,3 @@
-// 1. Capturamos todos los elementos necesarios del HTML
 const tarjetasTrabajo = document.querySelectorAll('.trabajo-item');
 const modal = document.getElementById('trabajosModal');
 const botonCerrar = document.querySelector('.modal-cerrar');
